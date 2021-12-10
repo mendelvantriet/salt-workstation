@@ -1,0 +1,14 @@
+fullname: "John Doe"
+email: john@doe.com
+user: me
+group: me
+
+samba:
+  hosts:
+    - host01:
+      name: 192.168.1.1
+      shares:
+        - name: share01
+          username: me
+          password: me
+
