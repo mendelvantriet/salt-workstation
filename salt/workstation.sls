@@ -35,6 +35,7 @@ include:
   - edit
   - file_browser
   - git
+  - latex
   - mounts
   - terminal
   - xfce4
