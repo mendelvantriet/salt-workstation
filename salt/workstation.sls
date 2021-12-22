@@ -36,6 +36,7 @@ include:
   - file_browser
   - git
   - latex
+  - mail
   - mounts
   - terminal
   - xfce4
