@@ -18,5 +18,5 @@
     
 # Run
 
-    sudo -E salt-call --local state.apply
+    sudo -E salt-call --local --state-output=mixed state.apply
 
