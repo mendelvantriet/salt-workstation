@@ -17,4 +17,6 @@ mail:
   restore_config: True
   replace_config: False
 
+file_browser:
+  bookmarks: []
 

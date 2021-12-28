@@ -15,4 +15,7 @@ file_browser_configuration:
       - gsettings set org.nemo.preferences default-folder-viewer 'list-view'
       - gsettings set org.nemo.preferences show-advanced-permissions true
 
-
+file_browser_bookmarks:
+  file.append:
+    - name: /home/{{ pillar['user'] }}/.config/gtk-3.0/bookmarks
+    - text: {{ pillar['file_browser']['bookmarks'] }}
