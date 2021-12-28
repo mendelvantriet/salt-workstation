@@ -40,6 +40,7 @@ include:
   - mounts
   - terminal
   - xfce4
+  - xfce4-panel
   - zsh
   
 

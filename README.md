@@ -20,3 +20,4 @@
 
     sudo -E salt-call --local --state-output=mixed state.apply
 
+`sudo -E` will pass env variables and will make sure dbus session is shared. This is usefull for resetting the panel.
