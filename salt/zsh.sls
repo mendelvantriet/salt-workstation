@@ -10,6 +10,8 @@ zsh_install_oh_my_zsh:
     - user: "{{ pillar['user'] }}"
     - rev: master
     - depth: 1
+    - require:
+      - sls: git
 
 zsh_configure_oh_my_zsh:
   cmd.run:
