@@ -17,6 +17,5 @@ zsh_configure_oh_my_zsh:
     - onlyif: 'test ! -e ~/.zshrc'
     - names:
       - cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-      #- chsh -s $(which zsh)
+      - chsh -s $(which zsh)
 
-# todo: plugins + change shell
