@@ -1,6 +1,8 @@
-## Salt
+# salt-workstation
 
-# Installation
+Work in progress. It works for me and was tested on Xubuntu.
+
+## Install Salt
 
     sudo apt-get install curl
     
@@ -12,11 +14,11 @@
     sudo apt-get update
     sudo apt-get install salt-minion
 
-# Post-Installation
+## Pillar data
 
-    sudo mkdir -p /srv/salt /srv/pillar
-    
-# Run
+Example pillar data is in `pillar/data.sls.example`.
+
+## Run
 
     sudo -E salt-call --local --state-output=mixed state.apply
 
