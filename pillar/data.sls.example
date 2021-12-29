@@ -20,3 +20,9 @@ mail:
 file_browser:
   bookmarks: []
 
+git:
+  github:
+    username: github_username
+    token: "..."
+    key_title: "me@{{ grains['host'] }}"
+
