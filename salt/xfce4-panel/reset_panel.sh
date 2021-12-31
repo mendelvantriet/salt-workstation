@@ -30,7 +30,7 @@ xfconf-query -c xfce4-panel -p /panels/panel-0/plugin-ids -a -n \
   -t int -s 7 -t int -s 8 -t int -s 9 \
   -t int -s 10 -t int -s 11 -t int -s 12
 
-xfconf-query -c xfwm4 -p /general/workspace_count -t uint -s 2 -n
+xfconf-query -c xfwm4 -p /general/workspace_count -t int -s 2 -n
 
 # restart panel
 xfce4-panel --restart
