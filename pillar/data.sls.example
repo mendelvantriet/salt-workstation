@@ -26,3 +26,6 @@ git:
     token: "..."
     key_title: "me@{{ grains['host'] }}"
 
+docker:
+  registry_mirrors: []
+
