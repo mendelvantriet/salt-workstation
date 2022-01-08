@@ -10,6 +10,16 @@ docker_group_membership:
     - groups: ["docker"]
     - remove_groups: False
 
+docker_config:
+  file.managed:
+    - name: /home/{{ pillar['user'] }}/.docker/config.json
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
+    - mode: 600
+    - makedirs: True
+    - source: salt://docker/config.json.tpl
+    - template: jinja
+
 docker_configure_daemon:
   file.managed:
     - name: /etc/docker/daemon.json

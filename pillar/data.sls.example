@@ -27,5 +27,8 @@ git:
     key_title: "me@{{ grains['host'] }}"
 
 docker:
+  registries:
+    - name: "https://index.docker.io/v1/"
+      auth: "" # echo -n 'username:password' | base64
   registry_mirrors: []
 
