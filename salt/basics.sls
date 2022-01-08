@@ -5,6 +5,7 @@ packages:
       - curl
       - gcc
       - make
+      - snap
       - unzip
       - zip
 
