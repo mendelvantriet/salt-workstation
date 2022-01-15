@@ -32,3 +32,15 @@ docker:
       auth: "" # echo -n 'username:password' | base64
   registry_mirrors: []
 
+maven:
+  master_password: ...
+  servers: []
+#    - id:
+#    - username:
+#    - password:
+  registry_mirrors: []
+#    - id:
+#      name:
+#      url:
+#      mirror_of:
+

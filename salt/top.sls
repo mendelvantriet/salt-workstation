@@ -13,6 +13,7 @@ base:
     # development tools
     - docker
     - git
+    - java
     - k8s
     - zsh
 
