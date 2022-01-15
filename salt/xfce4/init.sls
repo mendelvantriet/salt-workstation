@@ -24,7 +24,7 @@ xfce4_screensaver:
   cmd.run:
     - runas: "{{ pillar['user'] }}"
     - names:
-      - xset s 1800
-      - gsettings set org.gnome.desktop.screensaver lock-enabled false
+      - xfconf-query -c xfce4-screensaver -p /lock/saver-activation/delay -t int -s 5 -n
+      - xfconf-query -c xfce4-screensaver -p /saver/fullscreen-inhibit -t bool -s true -n
 
 
