@@ -44,3 +44,10 @@ maven:
 #      url:
 #      mirror_of:
 
+intellij:
+  version: # Leave empty to skip intellij
+  build: 
+  plugins: []
+#    - name: 
+#      url: 
+

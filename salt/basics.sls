@@ -4,6 +4,7 @@ packages:
       - apt-transport-https
       - curl
       - gcc
+      - libarchive-tools
       - make
       - snap
       - unzip
