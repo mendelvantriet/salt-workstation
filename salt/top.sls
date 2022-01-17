@@ -2,10 +2,10 @@ base:
   '*':
     - basics
     - edit
-    - file_browser
     - latex
     - mail
     - mounts
+    - nemo
     - terminal
     - xfce4
     - xfce4-panel
