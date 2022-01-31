@@ -11,6 +11,7 @@ base:
     - xfce4-panel
     
     # development tools
+    - aws
     - docker
     - git
     - java

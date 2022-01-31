@@ -21,5 +21,9 @@ Example pillar data is in `pillar/data.sls.example`.
 ## Run
 
     sudo -E salt-call --local --state-output=mixed state.apply
+    
+or
+
+    sudo -E salt-call --local --state-output=mixed state.sls <formula-name>
 
 `sudo -E` will pass env variables and will make sure dbus session is shared. This is usefull for resetting the panel.
