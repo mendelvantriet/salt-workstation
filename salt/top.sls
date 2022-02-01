@@ -12,6 +12,7 @@ base:
     
     # development tools
     - aws
+    - trusted-certificates
     - docker
     - git
     - java
