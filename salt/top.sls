@@ -1,5 +1,6 @@
 base:
   '*':
+    - autostart
     - basics
     - edit
     - latex

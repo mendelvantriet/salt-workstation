@@ -3,6 +3,12 @@ email: john@doe.com
 user: me
 group: me
 
+autostart:
+  - apps: []
+#    - name: 
+#      display_name: 
+#      exec: 
+
 samba:
   hosts:
     - host01:
