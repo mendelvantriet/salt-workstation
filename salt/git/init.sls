@@ -10,6 +10,13 @@ git_configuration:
       - git config --global user.email "{{ pillar['email'] }}"
       - git config --global user.name "{{ pillar['fullname'] }}"
 
+/home/{{ pillar['user'] }}/.gitignore-system:
+  file.managed:
+    - source: salt://git/gitignore-system
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
+    - mode: 600
+
 git_generate_ssh_key:
   cmd.run:
     - runas: "{{ pillar['user'] }}"
