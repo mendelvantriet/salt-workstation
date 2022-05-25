@@ -9,6 +9,13 @@ autostart:
 #      display_name: 
 #      exec: 
 
+browser:
+  default_search_engine: DuckDuckGo
+  homepage: ""
+  local_domains: []
+#    - foo.local
+#    - bar.intranet
+
 samba:
   hosts:
     - host01:
