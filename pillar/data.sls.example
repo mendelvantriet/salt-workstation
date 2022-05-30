@@ -3,6 +3,8 @@ email: john@doe.com
 user: me
 group: me
 
+rc_file: /home/me/.zshrc
+
 autostart:
   - apps: []
 #    - name: 
@@ -73,4 +75,20 @@ aws:
 
 certificates:
   path: ""
+
+latex:
+  # mirror multiplexor at https://mirror.ctan.org/
+  mirror: http://mirrors.rit.edu/CTAN/systems/texlive/tlnet
+  version: 2022
+  installation_dir: ~/apps/texlive
+  packages: []
+#    - lastpage
+#    - enumitem
+#    - beamer
+#    - wrapfig
+#    - moresize
+#    - titlesec # section titles
+#    - fontawesome # icons
+#    - ntgclass # letters
+#    - minted # code-hihlighting
 
