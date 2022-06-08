@@ -2,12 +2,16 @@ xfce4_default_apps:
   file.managed:
     - name: ~/.config/xfce4/helpers.rc
     - source: salt://xfce4/helpers.rc
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
     - makedirs: True
 
 xfce4_custom_file_manager:
   file.managed:
     - name: ~/.local/share/xfce4/custom-FileManager.desktop
     - source: salt://xfce4/custom-FileManager.desktop
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
     - makedirs: True
 
 xfce4_power_manager:
