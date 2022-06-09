@@ -15,6 +15,3 @@ mounts_configure_media:
     - source: salt://mounts/auto.media
     - template: jinja
 
-
-# todo: bookmarks in .config/gtk-3.0/bookmarks
-

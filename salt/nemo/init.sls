@@ -14,8 +14,13 @@ file_browser_configuration:
       - gsettings set org.nemo.preferences date-format iso
       - gsettings set org.nemo.preferences default-folder-viewer 'list-view'
       - gsettings set org.nemo.preferences show-advanced-permissions true
+      - gsettings set org.nemo.window-state sidebar-bookmark-breakpoint 3
 
-file_browser_bookmarks:
-  file.append:
-    - name: /home/{{ pillar['user'] }}/.config/gtk-3.0/bookmarks
-    - text: {{ pillar['file_browser']['bookmarks'] }}
+/home/{{ pillar['user'] }}/.config/gtk-3.0/bookmarks:
+  file.managed:
+    - source: salt://nemo/bookmarks
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
+    - template: jinja
+    - makedirs: True
+

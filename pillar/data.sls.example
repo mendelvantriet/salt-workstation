@@ -34,6 +34,8 @@ mail:
 
 file_browser:
   bookmarks: []
+    # - name: foo
+    #   path: file:///foo
 
 git:
   github:
