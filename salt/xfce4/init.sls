@@ -14,21 +14,18 @@ xfce4_custom_file_manager:
     - group: "{{ pillar['group'] }}"
     - makedirs: True
 
-xfce4_power_manager:
-  cmd.run:
-    - runas: "{{ pillar['user'] }}"
-    - names:
-      - xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-ac -s 20
-      - xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/blank-on-battery -s 20
-      - xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-enabled -s false
-      - xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-ac-off -s 0
-      - xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/dpms-on-battery-off -s 0
+/home/{{ pillar.user }}/bin/xfce4_settings.sh:
+  file.managed:
+    - source: salt://xfce4/xfce4_settings.sh
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
+    - mode: 755
+    - makedirs: True
 
-xfce4_screensaver:
+xfce4_settings:
   cmd.run:
+    - name: exec /home/{{ pillar.user }}/bin/xfce4_settings.sh
     - runas: "{{ pillar['user'] }}"
-    - names:
-      - xfconf-query -c xfce4-screensaver -p /lock/saver-activation/delay -t int -s 5 -n
-      - xfconf-query -c xfce4-screensaver -p /saver/fullscreen-inhibit -t bool -s true -n
-
+    - onchanges: 
+      - /home/{{ pillar.user }}/bin/xfce4_settings.sh
 
