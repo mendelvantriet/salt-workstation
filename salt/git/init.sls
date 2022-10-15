@@ -32,12 +32,10 @@ git_add_ssh_key_to_agent:
     - onchanges:
       - cmd: git_generate_ssh_key
 
-{% set key = salt['cmd.shell']('cat ~/.ssh/id_rsa.pub') %}
-
 git_push_key:
   cmd.run:
     - runas: "{{ pillar['user'] }}"
-    - name: curl -X POST -H "Accept:application/vnd.github.v3+json" -u "{{ pillar['git']['github']['username'] }}:{{ pillar['git']['github']['token'] }}" https://api.github.com/user/keys -d '{"title":"{{ pillar['git']['github']['key_title'] }}", "key":"{{ key }}"}'
+    - name: curl -X POST -H "Accept:application/vnd.github.v3+json" -u "{{ pillar['git']['github']['username'] }}:{{ pillar['git']['github']['token'] }}" https://api.github.com/user/keys -d '{"title":"{{ pillar['git']['github']['key_title'] }}", "key":"${cat ~/.ssh/id_rsa.pub}"}'
     - onchanges:
       - cmd: git_generate_ssh_key
 
