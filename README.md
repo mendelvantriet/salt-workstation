@@ -4,15 +4,14 @@ Work in progress. It works for me and was tested on Xubuntu.
 
 ## Install Salt
 
-    sudo apt-get install curl
-    
-    # Download key
-    sudo curl -fsSL -o /usr/share/keyrings/salt-archive-keyring.gpg https://repo.saltproject.io/py3/ubuntu/20.04/amd64/latest/salt-archive-keyring.gpg
-    # Create apt sources list file
-    echo "deb [signed-by=/usr/share/keyrings/salt-archive-keyring.gpg arch=amd64] https://repo.saltproject.io/py3/ubuntu/20.04/amd64/latest focal main" | sudo tee /etc/apt/sources.list.d/salt.list
+    sudo git clone <this repo> /srv
+    chown -R $USER:$USER /srv
+    cd /srv
 
-    sudo apt-get update
-    sudo apt-get install salt-minion
+    # Install Salt as a Masterless Minion
+    wget https://bootstrap.saltstack.com -O install_salt.sh
+    sudo sh install_salt.sh
+    sudo sed -i -e 's/#file_client: remote/file_client: local/' /etc/salt/minion
 
 ## Pillar data
 
