@@ -9,7 +9,7 @@ TEXMFLOCAL {{ pillar.latex.installation_dir | replace('~', '/home/' ~ pillar.use
 TEXMFSYSCONFIG {{ pillar.latex.installation_dir | replace('~', '/home/' ~ pillar.user) }}/{{ pillar.latex.version }}/texmf-config
 TEXMFSYSVAR {{ pillar.latex.installation_dir | replace('~', '/home/' ~ pillar.user) }}/{{ pillar.latex.version }}/texmf-var
 TEXMFVAR ~/.texlive{{ pillar.latex.version }}/texmf-var
-binary_x86_64-linux 1
+binary_{{ pillar.latex.architecture }}-linux 1
 instopt_adjustpath 0
 instopt_adjustrepo 1
 instopt_letter 0

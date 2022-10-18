@@ -1,12 +1,16 @@
-latex_packages:
+{% if pillar.latex.dependencies %}
+latex_dependencies:
   pkg.installed:
     - pkgs:
-      - python3-pygments # needed for minted
+      {% for d in pillar.latex.dependencies %}
+      - {{ d }}
+      {% endfor %}
+{% endif %}
 
 {% set download_dir = "/home/" ~ pillar['user'] ~ "/Downloads" %}
 {% set extracted_dir = download_dir ~ "/texlive-" ~ pillar.latex.version %}
 {% set texlive_profile = extracted_dir ~ "/texlive.profile" %}
-{% set path = pillar.latex.installation_dir.replace('~', '$HOME') ~ '/' ~ pillar.latex.version ~ '/bin/x86_64-linux' %}
+{% set path = pillar.latex.installation_dir.replace('~', '$HOME') ~ '/' ~ pillar.latex.version ~ '/bin/' ~ pillar.latex.architecture ~ '-linux' %}
 
 {{ extracted_dir }}:
   file.directory:
@@ -39,7 +43,7 @@ latex_install:
 {{ pillar.rc_file }}:
   file.append:
     - text: |
-        if [ -d "{{ path }}" ] ; then
+        if [ -d "{{ path }}" ] ; then 
           export PATH="{{ path }}:$PATH"
         fi
 

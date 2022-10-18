@@ -83,6 +83,7 @@ latex:
   mirror: http://mirrors.rit.edu/CTAN/systems/texlive/tlnet
   version: 2022
   installation_dir: ~/apps/texlive
+  architecture: x86_64 # either x86_64 or aarch64
   packages: []
 #    - lastpage
 #    - enumitem
@@ -93,4 +94,6 @@ latex:
 #    - fontawesome # icons
 #    - ntgclass # letters
 #    - minted # code-hihlighting
+  dependencies: []
+#    - python3-pygments # needed for minted
 
