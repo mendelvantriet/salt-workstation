@@ -2,7 +2,7 @@ java_packages:
   pkg.installed:
     - pkgs:
       - openjdk-8-jdk
-      - sbt
+      - maven
 
 maven:
   pkg.installed: []
