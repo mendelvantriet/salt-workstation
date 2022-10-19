@@ -1,28 +1,41 @@
 {% if pillar['intellij']['version'] %}
 
+{% set installation_base = "/home/" ~ pillar.user ~ "/apps" %}
+{% set intellij_directory = installation_base ~ "/idea-IC-" ~ pillar.intellij.build %}
+{% set intellij_home = installation_base ~ "/idea" %}
+
 intellij_install:
   archive.extracted:
-    - name: /opt
+    - name: {{ installation_base }}
     - source: https://download.jetbrains.com/idea/ideaIC-{{ pillar['intellij']['version'] }}.tar.gz
     - source_hash: https://download.jetbrains.com/idea/ideaIC-{{ pillar['intellij']['version'] }}.tar.gz.sha256
-    - if_missing: /opt/idea-IC-{{ pillar['intellij']['build'] }}
-
-/opt/idea:
+    - enforce_toplevel: False
+    - user: {{ pillar.user }}
+    - group: {{ pillar.group }}
+    - if_missing: {{ intellij_directory }}
   file.symlink:
-    - target: /opt/idea-IC-{{ pillar['intellij']['build'] }}
+    - name: {{ intellij_home }}
+    - target: {{ intellij_directory }}
+    - force: True
+    - user: {{ pillar.user }}
+    - group: {{ pillar.group }}
 
-/usr/local/bin/idea.sh:
+~/bin/idea.sh:
   file.symlink:
-    - target: /opt/idea/bin/idea.sh
+    - target: {{ intellij_home }}/bin/idea.sh
+    - user: {{ pillar.user }}
+    - group: {{ pillar.group }}
 
 {% for plugin in pillar['intellij']['plugins'] %}
 intellij_plugin_{{ plugin.name }}:
   archive.extracted:
-    - name: /opt/idea/plugins/
+    - name: {{ intellij_home }}/plugins/
     - source: {{ plugin.url }}
     - archive_format: zip
     - skip_verify: True
-    - if_missing: /opt/idea/plugins/{{ plugin.name }}
+    - user: {{ pillar.user }}
+    - group: {{ pillar.group }}
+    - if_missing: {{ intellij_home }}/plugins/{{ plugin.name }}
 {% endfor %}
 
 {% endif %}
