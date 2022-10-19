@@ -38,4 +38,15 @@ intellij_plugin_{{ plugin.name }}:
     - if_missing: {{ intellij_home }}/plugins/{{ plugin.name }}
 {% endfor %}
 
+~/.local/share/applications/IntelliJ.desktop:
+  file.managed:
+    - source: salt://intellij/IntelliJ.desktop.tpl
+    - template: jinja
+    - user: {{ pillar.user }}
+    - group: {{ pillar.group }}
+    - mode: 755
+    - makedirs: True
+    - context:
+      intellij_home: {{ intellij_home }}
+  
 {% endif %}
