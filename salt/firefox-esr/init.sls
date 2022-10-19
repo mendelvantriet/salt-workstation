@@ -1,7 +1,7 @@
 firefox_esr_pkg:
   #  pkgrepo seems to be broken (https://github.com/saltstack/salt/issues/59065)
   cmd.run:
-    - name: add-apt-repository ppa:mozillateam/ppa
+    - name: add-apt-repository ppa:mozillateam/ppa -y
     - unless: "grep -rq mozillateam/ppa /etc/apt/sources.list*"
   pkg.installed:
     - name: firefox-esr

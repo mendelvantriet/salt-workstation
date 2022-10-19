@@ -3,6 +3,7 @@ base:
     - autostart
     - basics
     - edit
+    - firefox-esr
     - latex
     - mail
     - mounts
