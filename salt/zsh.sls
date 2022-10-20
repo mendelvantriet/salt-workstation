@@ -1,6 +1,7 @@
 zsh_packages:
   pkg.installed:
     - pkgs:
+      - git # required for oh_my_zsh
       - zsh
 
 zsh_install_oh_my_zsh:
@@ -10,14 +11,14 @@ zsh_install_oh_my_zsh:
     - user: "{{ pillar['user'] }}"
     - rev: master
     - depth: 1
-    - require:
-      - sls: git
 
 zsh_configure_oh_my_zsh:
   cmd.run:
     - runas: "{{ pillar['user'] }}"
     - onlyif: 'test ! -e ~/.zshrc'
-    - names:
-      - cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-      - chsh -s $(which zsh)
+    - name: cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+
+zsh_change_shell:
+  cmd.run:
+    - name: chsh -s $(which zsh) {{ pillar.user }}
 
