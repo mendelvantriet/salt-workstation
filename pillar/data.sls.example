@@ -38,10 +38,10 @@ file_browser:
     #   path: file:///foo
 
 git:
-  github:
-    username: github_username
-    token: "..."
-    key_title: "me@{{ grains['host'] }}"
+  github_accounts: []
+#    - username: github_username
+#      token: "..."
+#      key_title: "me@{{ grains['host'] }}"
 
 docker:
   registries:
