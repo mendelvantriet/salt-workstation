@@ -4,12 +4,14 @@ git-deps:
       - git
       - curl
 
-git_configuration:
-  cmd.run:
-    - runas: "{{ pillar['user'] }}"
-    - names:
-      - git config --global user.email "{{ pillar['email'] }}"
-      - git config --global user.name "{{ pillar['fullname'] }}"
+git-configuration:
+  file.managed:
+    - name: /home/{{ pillar.user }}/.gitconfig
+    - source: salt://git/gitconfig.tpl
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
+    - mode: 600
+    - template: jinja
     - requires:
       - pkg: git-deps
 
