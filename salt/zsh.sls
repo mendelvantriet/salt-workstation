@@ -21,4 +21,5 @@ zsh_configure_oh_my_zsh:
 zsh_change_shell:
   cmd.run:
     - name: chsh -s $(which zsh) {{ pillar.user }}
+    - unless: "test $SHELL = /usr/bin/zsh"
 
