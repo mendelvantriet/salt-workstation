@@ -5,6 +5,11 @@ group: me
 
 rc_file: /home/me/.zshrc
 
+zsh:
+  plugins:
+    - git
+    - ssh-agent
+
 autostart:
   - apps: []
 #    - name: 
