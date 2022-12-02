@@ -45,6 +45,7 @@ file_browser:
 git:
   github_accounts: []
 #    - username: github_username
+#      host: github.com  # host alias used in ~/.ssh/config
 #      token: "..."
 #      key_title: "me@{{ grains['host'] }}"
 

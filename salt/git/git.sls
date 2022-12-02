@@ -28,6 +28,25 @@ git-configuration:
   {% from 'lib.sls' import ssh_keygen with context %}
   {{ ssh_keygen(pillar.user, key_filename) }}
 
+git-host-{{ account.host }}:
+  file.blockreplace:
+    - name: ~/.ssh/config
+    - runas: "{{ pillar.user }}"
+    - marker_start: "### START BLOCK {{ account.host }} ###"
+    - marker_end:   "### END   BLOCK {{ account.host }} ###"
+    - template: jinja
+    - source: salt://git/ssh_config.block.tpl
+    - backup: '.bak'
+    - append_if_not_found: True
+    - append_newline: False
+    - show_changes: True
+    - context:
+        host: {{ account.host }}
+        hostname: github.com
+        user: git
+        identityfile: {{ key_filename }}
+    - onlyif: 'touch ~/.ssh/config' 
+
 git_push_key_{{ key_filename }}:
   github.add_ssh_key:
     - name: {{ key_filename }}.pub
