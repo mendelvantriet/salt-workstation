@@ -1,3 +1,9 @@
+xfce4-remove-unwanted:
+  pkg.removed:
+    - pkgs:
+      - thunar
+      - mousepad
+
 xfce4_default_apps:
   file.managed:
     - name: ~/.config/xfce4/helpers.rc
