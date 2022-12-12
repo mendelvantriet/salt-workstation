@@ -39,11 +39,13 @@ certificates_notification:
 
 update_ca_certificates:
   cmd.run:
-   - name: 'update-ca-certificates'
-   - onchanges:
-    {% for file in salt.file.find(pillar['certificates']['path'], type='f', print='path') %}
-     - file: "/usr/local/share/ca-certificates/{{ file | replace(pillar['certificates']['path'], '') }}"
-    {% endfor %}
-   - require:
-     - pkg: ca-certificates
+    - name: 'update-ca-certificates'
+    {% if salt.file.directory_exists(pillar['certificates']['path']) %}
+    - onchanges:
+      {% for file in salt.file.find(pillar['certificates']['path'], type='f', print='path') %}
+      - file: "/usr/local/share/ca-certificates/{{ file | replace(pillar['certificates']['path'], '') }}"
+      {% endfor %}
+    {% endif %}
+    - require:
+      - pkg: ca-certificates
 
