@@ -22,6 +22,8 @@ xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Page_Up" -s
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Right" -s tile_right_key
 xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Up" -s tile_up_key
 
+xfconf-query -c xfwm4 -p /general/theme -s "{{ pillar.xfce4.theme }}"
+xfconf-query -c xsettings -p /Net/ThemeName -s "{{ pillar.xfce4.style }}"
 
 echo "changed=yes comment='xfce4 settings changed'"
 

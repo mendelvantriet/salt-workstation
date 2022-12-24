@@ -23,6 +23,7 @@ xfce4_custom_file_manager:
 /home/{{ pillar.user }}/bin/xfce4_settings.sh:
   file.managed:
     - source: salt://xfce4/xfce4_settings.sh
+    - template: jinja
     - user: "{{ pillar['user'] }}"
     - group: "{{ pillar['group'] }}"
     - mode: 755

@@ -16,6 +16,10 @@ autostart:
 #      display_name: 
 #      exec: 
 
+xfce4:
+  theme: "Numix"
+  style: "Numix"
+
 browser:
   default_search_engine: DuckDuckGo
   homepage: ""
