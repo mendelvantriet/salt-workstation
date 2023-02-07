@@ -36,10 +36,8 @@ samba:
           username: me
           password: me
 
-mail:
-  config_location: /path/to/config
-  restore_config: True
-  replace_config: False
+evolution:
+  backup_dir: ~/backups/
 
 file_browser:
   bookmarks: []

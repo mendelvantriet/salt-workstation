@@ -3,9 +3,9 @@ base:
     - autostart
     - basics
     - edit
+    - evolution
     - firefox-esr
     - latex
-    - mail
     - mounts
     - nemo
     - terminal
