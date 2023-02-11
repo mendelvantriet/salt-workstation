@@ -3,6 +3,7 @@ git-deps:
     - pkgs:
       - git
       - curl
+      - git-filter-repo
 
 git-configuration:
   file.managed:
