@@ -1,0 +1,30 @@
+{
+    "type": "script",
+    "description": "CycleTabRight",
+    "store": {},
+    "modes": [
+        3
+    ],
+    "usageCount": 60,
+    "prompt": false,
+    "omitTrigger": false,
+    "showInTrayMenu": false,
+    "abbreviation": {
+        "abbreviations": [],
+        "backspace": true,
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]"
+    },
+    "hotkey": {
+        "modifiers": [
+            "<ctrl>"
+        ],
+        "hotKey": "<tab>"
+    },
+    "filter": {
+        "regex": "gedit.Gedit",
+        "isRecursive": false
+    }
+}
