@@ -36,6 +36,13 @@ samba:
           username: me
           password: me
 
+mounts:
+  fstab: []
+#    - name: name
+#      target: /mnt/point
+#      fstype: fs
+#      opts: _netdev,exec
+
 evolution:
   backup_dir: ~/backups/
 
