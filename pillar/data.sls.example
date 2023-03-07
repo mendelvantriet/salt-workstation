@@ -27,16 +27,11 @@ browser:
 #    - foo.local
 #    - bar.intranet
 
-samba:
-  hosts:
-    - host01:
-      name: 192.168.1.1
-      shares:
-        - name: share01
-          username: me
-          password: me
-
 mounts:
+  autofs: []
+#    - name: share
+#      target: "://192.168.1.1/share"
+#      opts: "fstype=cifs..."
   fstab: []
 #    - name: name
 #      target: /mnt/point

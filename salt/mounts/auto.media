@@ -1,7 +1,4 @@
-{% for host in pillar['samba']['hosts'] %}
-  {% for share in host['shares'] %}
-    {{ share['name'] }} -fstype=cifs,username={{ share['username'] }},password={{ share['password'] }},rw,exec,uid={{ pillar['user'] }},gid={{ pillar['group'] }} ://{{ host['name'] }}/{{ share['name'] }}
-
-  {% endfor %}
+{% for share in pillar.mounts.autofs %}
+  {{ share.name }} -{{ share.opts }} {{ share.target }}
 {% endfor %}
 
