@@ -9,7 +9,9 @@ def add_ssh_key(name: str, title: str, token: str):
   
   new_key = _read_key_file(name)
   response = _get_ssh_keys(token)
-  
+  if response['status'] != 200:
+    ret['comment'] += f"Response status: {response['status']}"
+    return ret
   existing_keys = json.loads(response['text'])
   existing_keys = [k['key'] for k in existing_keys]
 
@@ -45,6 +47,7 @@ def _get_ssh_keys(token: str):
         'Authorization': f'Bearer {token}',
       },
       text=True,
+      status=True,
     )
   except Exception as exc:  # pylint: disable=broad-except
     raise CommandExecutionError(str(exc))

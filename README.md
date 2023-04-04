@@ -13,6 +13,12 @@ Work in progress. It works for me and was tested on Xubuntu.
     sudo sh install_salt.sh
     sudo sed -i -e 's/#file_client: remote/file_client: local/' /etc/salt/minion
 
+## Sync States
+
+```console
+sudo -E salt-call --local --state-output=mixed saltutil.sync_states
+```
+
 ## Pillar data
 
 Example pillar data is in `pillar/data.sls.example`.
