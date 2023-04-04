@@ -107,3 +107,11 @@ latex:
   dependencies: []
 #    - python3-pygments # needed for minted
 
+filezilla:
+  servers: []
+#    - host:
+#      port: 21
+#      user:
+#      pass:
+#      name:
+
