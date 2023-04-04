@@ -52,6 +52,9 @@ git:
 #      host: github.com  # host alias used in ~/.ssh/config
 #      token: "..."
 #      key_title: "me@{{ grains['host'] }}"
+  repositories: []
+#    - url: "git@github.com:foo/bar.git"
+#      target: /home/user/bar
 
 docker:
   registries:

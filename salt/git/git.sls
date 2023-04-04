@@ -56,3 +56,21 @@ git_push_key_{{ key_filename }}:
 
 {% endfor %}
 
+
+# Clone git repositories
+
+/home/{{ pillar.user }}/git:
+  file.directory:
+    - user: {{ pillar.user }}
+    - group: {{ pillar.group }}
+    - mode: 700
+
+{% for repo in pillar.git.repositories %}
+{{ repo.url }}:
+  git.cloned:
+    - target: {{ repo.target }}
+    - user: {{ pillar.user }}
+    - require:
+      - file: /home/{{ pillar.user }}/git
+{% endfor %}
+
