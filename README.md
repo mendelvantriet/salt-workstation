@@ -4,14 +4,19 @@ Work in progress. It works for me and was tested on Xubuntu.
 
 ## Install Salt
 
-    sudo git clone <this repo> /srv
-    chown -R $USER:$USER /srv
-    cd /srv
+```console
+sudo git clone <this repo> /srv
+chown -R $USER:$USER /srv
+cd /srv
 
-    # Install Salt as a Masterless Minion
-    wget https://bootstrap.saltstack.com -O install_salt.sh
-    sudo sh install_salt.sh
-    sudo sed -i -e 's/#file_client: remote/file_client: local/' /etc/salt/minion
+# Install Salt as a Masterless Minion
+wget https://bootstrap.saltstack.com -O install_salt.sh
+sudo sh install_salt.sh
+sudo sed -i -e 's/#file_client: remote/file_client: local/' /etc/salt/minion
+
+# In masterless mode we don't need the salt-minion service
+sudo systemctl disable salt-minion
+```
 
 ## Sync States
 
