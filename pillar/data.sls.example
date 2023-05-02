@@ -118,3 +118,8 @@ filezilla:
 #      pass:
 #      name:
 
+pyenv:
+  versions: []
+#    - 3.8.15
+#    - 3.9.15
+

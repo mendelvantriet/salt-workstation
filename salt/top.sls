@@ -19,6 +19,6 @@ base:
     - git
     - java
     - k8s
-    - pyenv
+    - python
     - zsh
 
