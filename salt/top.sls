@@ -1,5 +1,6 @@
 base:
   '*':
+    - android
     - autostart
     - basics
     - edit
