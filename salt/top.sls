@@ -10,6 +10,7 @@ base:
     - mounts
     - nemo
     - terminal
+    - timesyncd
     - xfce4
     - xfce4-panel
     
