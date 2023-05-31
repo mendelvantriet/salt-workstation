@@ -16,9 +16,15 @@ git-configuration:
     - requires:
       - pkg: git-deps
 
-/home/{{ pillar['user'] }}/.gitignore-system:
+/home/{{ pillar['user'] }}/.config/git:
+  file.directory:
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
+    - dir_mode: 700
+
+/home/{{ pillar['user'] }}/.config/git/gitignore:
   file.managed:
-    - source: salt://git/gitignore-system
+    - source: salt://git/gitignore-global
     - user: "{{ pillar['user'] }}"
     - group: "{{ pillar['group'] }}"
     - mode: 600
