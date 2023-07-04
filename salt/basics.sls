@@ -6,6 +6,7 @@ packages:
       - gcc
       - libarchive-tools
       - make
+      - network-manager-openvpn-gnome
       - snap
       - unzip
       - zip
