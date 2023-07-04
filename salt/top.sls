@@ -9,6 +9,7 @@ base:
     - latex
     - mounts
     - nemo
+    - retext
     - terminal
     - timesyncd
     - xfce4
