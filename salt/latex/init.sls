@@ -36,12 +36,13 @@ latex_install:
     - source: salt://latex/texlive.profile
     - template: jinja
   cmd.run:
-    - name: {{ extracted_dir }}/install-tl --profile={{ texlive_profile }} --repository={{ pillar.latex.mirror }}
+    - name: {{ extracted_dir }}/install-tl --no-gui --profile={{ texlive_profile }} --repository={{ pillar.latex.mirror }}
     - runas: {{ pillar.user }}
     - unless: test -d {{ pillar.latex.installation_dir }}/{{ pillar.latex.version }}
 
-{{ pillar.rc_file }}:
+latex_path:
   file.append:
+    - name: {{ pillar.rc_file }}
     - text: |
         if [ -d "{{ path }}" ] ; then 
           export PATH="{{ path }}:$PATH"
