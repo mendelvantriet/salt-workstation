@@ -1,4 +1,4 @@
 {% for share in pillar.mounts.autofs %}
-  {{ share.name }} -{{ share.opts }} {{ share.target }}
+  {{ share.target }} -{{ share.opts }} {{ share.name }}
 {% endfor %}
 
