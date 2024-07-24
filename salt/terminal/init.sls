@@ -1,13 +1,21 @@
-terminal_packages:
+terminal-deps:
   pkg.installed:
     - pkgs:
       - xfce4-terminal
 
-terminal_configure:
+/home/{{ pillar.user }}/bin/xfce4-terminal-settings.sh:
   file.managed:
-    - name: ~/.config/xfce4/terminal/terminalrc
-    - source: salt://terminal/terminalrc
+    - source: salt://terminal/xfce4-terminal-settings.sh
+    - template: jinja
     - user: "{{ pillar['user'] }}"
     - group: "{{ pillar['group'] }}"
+    - mode: 755
     - makedirs: True
+
+xfce4-terminal-settings:
+  cmd.run:
+    - name: exec /home/{{ pillar.user }}/bin/xfce4-terminal-settings.sh
+    - runas: "{{ pillar['user'] }}"
+    - onchanges: 
+      - /home/{{ pillar.user }}/bin/xfce4-terminal-settings.sh
 
