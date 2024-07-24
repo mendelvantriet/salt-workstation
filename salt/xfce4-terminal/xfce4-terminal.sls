@@ -1,11 +1,11 @@
-terminal-deps:
+xfce4-terminal-deps:
   pkg.installed:
     - pkgs:
       - xfce4-terminal
 
 /home/{{ pillar.user }}/bin/xfce4-terminal-settings.sh:
   file.managed:
-    - source: salt://terminal/xfce4-terminal-settings.sh
+    - source: salt://xfce4-terminal/xfce4-terminal-settings.sh
     - template: jinja
     - user: "{{ pillar['user'] }}"
     - group: "{{ pillar['group'] }}"
