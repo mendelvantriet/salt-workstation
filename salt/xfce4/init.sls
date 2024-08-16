@@ -3,6 +3,7 @@ xfce4-remove-unwanted:
     - pkgs:
       - thunar
       - mousepad
+      - thunderbird
 
 xfce4_default_apps:
   file.managed:
@@ -12,10 +13,18 @@ xfce4_default_apps:
     - group: "{{ pillar['group'] }}"
     - makedirs: True
 
-xfce4_custom_file_manager:
+xfce4-custom-file-manager:
   file.managed:
-    - name: ~/.local/share/xfce4/custom-FileManager.desktop
+    - name: ~/.local/share/xfce4/helpers/custom-FileManager.desktop
     - source: salt://xfce4/custom-FileManager.desktop
+    - user: "{{ pillar['user'] }}"
+    - group: "{{ pillar['group'] }}"
+    - makedirs: True
+
+xfce4-custom-web-browser:
+  file.managed:
+    - name: ~/.local/share/xfce4/helpers/custom-WebBrowser.desktop
+    - source: salt://xfce4/custom-WebBrowser.desktop
     - user: "{{ pillar['user'] }}"
     - group: "{{ pillar['group'] }}"
     - makedirs: True
@@ -29,7 +38,7 @@ xfce4_custom_file_manager:
     - mode: 755
     - makedirs: True
 
-xfce4_settings:
+xfce4-settings:
   cmd.run:
     - name: exec /home/{{ pillar.user }}/bin/xfce4_settings.sh
     - runas: "{{ pillar['user'] }}"
