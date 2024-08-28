@@ -16,6 +16,19 @@ autostart:
 #      display_name: 
 #      exec: 
 
+aws:
+  config:
+    default_region: eu-west-1
+    profiles: []
+#      - name: 
+#        role_arn: "" # optional
+#        mfa_serial: "" # optional
+  credentials:
+    profiles: []
+#      - name: default
+#        aws_access_key_id: ""
+#        aws_secret_access_key: ""
+
 xfce4:
   theme: "Numix"
   style: "Numix"
@@ -80,13 +93,6 @@ intellij:
   plugins: []
 #    - name: 
 #      url: 
-
-aws:
-  default_region: eu-west-1
-  profiles:
-    - name: default
-      aws_access_key_id: ""
-      aws_secret_access_key: ""
 
 certificates:
   path: ""

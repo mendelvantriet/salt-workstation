@@ -1,4 +1,4 @@
-awscli-install:
+awscli-v2-install:
   cmd.run:
     - name: snap install aws-cli --classic
     - unless: snap list aws-cli
