@@ -21,6 +21,7 @@ aws:
     default_region: eu-west-1
     profiles: []
 #      - name: 
+#        source_profile: "" # optional, default is "default"
 #        role_arn: "" # optional
 #        mfa_serial: "" # optional
   credentials:
