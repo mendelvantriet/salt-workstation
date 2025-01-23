@@ -30,6 +30,9 @@ aws:
 #        aws_access_key_id: ""
 #        aws_secret_access_key: ""
 
+backup:
+  location: ""
+
 xfce4:
   theme: "Numix"
   style: "Numix"
