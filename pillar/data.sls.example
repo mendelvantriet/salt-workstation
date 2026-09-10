@@ -53,11 +53,6 @@ docker:
 evolution:
   backup_dir: ~/backups/
 
-file_browser:
-  bookmarks: []
-    # - name: foo
-    #   path: file:///foo
-
 git:
   organizations: []
 #    - name:
@@ -66,6 +61,13 @@ git:
   repositories: []
 #    - url: "git@github.com:foo/bar.git"
 #      target: /home/user/bar
+
+intellij:
+  version: # Leave empty to skip intellij
+  build: 
+  plugins: []
+#    - name: 
+#      url: 
 
 maven:
   master_password: ...
@@ -90,12 +92,10 @@ mounts:
 #      fstype: fs
 #      opts: _netdev,exec
 
-intellij:
-  version: # Leave empty to skip intellij
-  build: 
-  plugins: []
-#    - name: 
-#      url: 
+nemo:
+  bookmarks: []
+    # - name: foo
+    #   path: file:///foo
 
 certificates:
   path: ""
