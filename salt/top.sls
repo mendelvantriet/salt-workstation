@@ -3,15 +3,15 @@ base:
     - android
     - autostart
     - basics
-    - edit
     - evolution
     - firefox-esr
+    - gedit
     - latex
     - mounts
     - nemo
     - retext
-    - xfce4-terminal
     - timesyncd
+    - xfce4-terminal
     - xfce4
     - xfce4-panel
     

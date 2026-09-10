@@ -1,10 +1,10 @@
-edit_packages:
+gedit_packages:
   pkg.installed:
     - pkgs:
       - gedit
       - gedit-plugins
 
-edit_configuration:
+gedit_configuration:
   cmd.run:
     - runas: "{{ pillar['user'] }}"
     - names:
