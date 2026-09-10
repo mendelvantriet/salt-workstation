@@ -133,5 +133,5 @@ pyenv:
 #    - 3.9.15
 
 timesyncd:
-  - poll_interval_max_sec: 2048
+  poll_interval_max_sec: 2048
 

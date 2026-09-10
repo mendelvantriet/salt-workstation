@@ -1,5 +1,10 @@
 # https://ubuntu.com/server/docs/network-ntp
 
+timesyncd-deps:
+  pkg.installed:
+    - pkgs:
+      - systemd-timesyncd
+
 timesyncd-conf:
   file.replace:
     - name: /etc/systemd/timesyncd.conf
