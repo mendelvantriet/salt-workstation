@@ -44,16 +44,11 @@ browser:
 #    - foo.local
 #    - bar.intranet
 
-mounts:
-  autofs: []
-#    - name: "://192.168.1.1/share"
-#      target: share
-#      opts: "fstype=cifs..."
-  fstab: []
-#    - name: //server/share
-#      target: /mnt/point
-#      fstype: fs
-#      opts: _netdev,exec
+docker:
+  registries:
+    - name: "https://index.docker.io/v1/"
+      auth: "" # echo -n 'username:password' | base64
+  registry_mirrors: []
 
 evolution:
   backup_dir: ~/backups/
@@ -64,20 +59,13 @@ file_browser:
     #   path: file:///foo
 
 git:
-  github_accounts: []
-#    - username: github_username
+  organizations: []
+#    - name:
 #      host: github.com  # host alias used in ~/.ssh/config
-#      token: "..."
-#      key_title: "me@{{ grains['host'] }}"
+#      email: ""
   repositories: []
 #    - url: "git@github.com:foo/bar.git"
 #      target: /home/user/bar
-
-docker:
-  registries:
-    - name: "https://index.docker.io/v1/"
-      auth: "" # echo -n 'username:password' | base64
-  registry_mirrors: []
 
 maven:
   master_password: ...
@@ -90,6 +78,17 @@ maven:
 #      name:
 #      url:
 #      mirror_of:
+
+mounts:
+  autofs: []
+#    - name: "://192.168.1.1/share"
+#      target: share
+#      opts: "fstype=cifs..."
+  fstab: []
+#    - name: //server/share
+#      target: /mnt/point
+#      fstype: fs
+#      opts: _netdev,exec
 
 intellij:
   version: # Leave empty to skip intellij
