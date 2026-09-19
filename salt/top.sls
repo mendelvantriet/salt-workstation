@@ -20,8 +20,10 @@ base:
     - trusted-certificates
     - docker
     - git
+    - helm
     - java
-    - k8s
+    - kind
+    - kubectl
     - python
     - zsh
 
