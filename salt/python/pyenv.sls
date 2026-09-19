@@ -8,6 +8,7 @@ pyenv-deps:  # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
       - libreadline-dev
       - libsqlite3-dev
       - curl
+      - git
       - libncurses-dev
       - xz-utils
       - tk-dev
@@ -15,6 +16,7 @@ pyenv-deps:  # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
       - libxmlsec1-dev
       - libffi-dev
       - liblzma-dev
+      - libzstd-dev
 
 {% for version in pillar.pyenv.versions %}
 {{ version }}:
