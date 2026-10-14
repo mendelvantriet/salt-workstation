@@ -5,8 +5,8 @@
   email = {{ pillar.email }}
   name = {{ pillar.fullname }}
 
-{% for organization in pillar.git.organizations %}
-[includeIf "gitdir:~/git/{{ organization.name }}/"]
-path = ~/git/{{ organization.name }}/.gitconfig
+{% for tenant in pillar.git.tenants %}
+[includeIf "gitdir:~/git/{{ tenant.name }}/"]
+path = ~/git/{{ tenant.name }}/.gitconfig
 {% endfor %}
 

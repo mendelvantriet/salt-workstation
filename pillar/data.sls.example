@@ -54,10 +54,10 @@ evolution:
   backup_dir: ~/backups/
 
 git:
-  organizations: []
-#    - name:
-#      host: github.com  # host alias used in ~/.ssh/config
+  tenants: []
+#    - name: account_host_or_organization_name
 #      email: ""
+#      key_type: rsa  # ssh-keygen key type
   repositories: []
 #    - url: "git@github.com:foo/bar.git"
 #      target: /home/user/bar

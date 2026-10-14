@@ -3,6 +3,6 @@
   sshCommand = ssh -i {{ identityfile }}
 
 [user]
-  email = {{ pillar.git.organization.email }}
+  email = {{ email }}
   name = {{ pillar.fullname }}
 

@@ -35,20 +35,24 @@ git-configuration:
     - group: "{{ pillar['group'] }}"
     - mode: 600
 
-{% for organization in pillar.git.organizations %}
-  {% set key_type = 'ecdsa' %}
-  {% set key_filename = '/home/' ~ pillar.user ~ '/.ssh/id_' ~ key_type ~ '.' ~ organization.name ~ '@' ~ organization.host %}
+{% for tenant in pillar.git.tenants %}
+  {% if tenant.key_type is not none %}
+    {% set key_type = tenant.key_type %}
+  {% else %}
+    {% set key_type = 'ecdsa' %}
+  {% endif %}
+  {% set key_filename = '/home/' ~ pillar.user ~ '/.ssh/id_' ~ key_type ~ '.' ~ tenant.name %}
 
   {% from 'lib.sls' import ssh_keygen with context %}
   {{ ssh_keygen(pillar.user, key_type, key_filename) }}
 
-/home/{{ pillar['user'] }}/git/{{ organization.name }}:
+/home/{{ pillar['user'] }}/git/{{ tenant.name }}:
   file.directory:
     - user: "{{ pillar['user'] }}"
     - group: "{{ pillar['group'] }}"
     - dir_mode: 700
 
-/home/{{ pillar['user'] }}/git/{{ organization.name }}/.gitconfig:
+/home/{{ pillar['user'] }}/git/{{ tenant.name }}/.gitconfig:
   file.managed:
     - source: salt://git/gitconfig-local.tpl
     - user: "{{ pillar['user'] }}"
@@ -57,6 +61,7 @@ git-configuration:
     - template: jinja
     - context:
         identityfile: {{ key_filename }}
+        email: {{ tenant.email }}
     - requires:
       - pkg: git-deps
 
